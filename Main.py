@@ -7,7 +7,7 @@ cipher_text = []
 plain_text = []
 
 # Functions
-def encrypt():
+def encryption():
     for input_letter in input_letters:
         if input_letter == " ":
             cipher_text.append(" ")
@@ -18,7 +18,7 @@ def encrypt():
             else:
                 new_position = (position + 3) - 25
                 cipher_text.append(letters[new_position - 1])
-def decrypt():
+def decryption():
     for input_letter in input_letters:
         if input_letter == " ":
             plain_text.append(" ")
@@ -41,7 +41,7 @@ if method == "encrypt":
     user_input = input("Enter your word : ").upper()
     for letter in user_input:
         input_letters.append(letter)
-    encrypt()
+    encryption()
     print("Cipher text: ", end="")
     for letter in cipher_text:
         print(letter, end="")
@@ -50,7 +50,7 @@ elif method == "decrypt":
     user_input = input("Enter your word : ").upper()
     for letter in user_input:
         input_letters.append(letter)
-    decrypt()
+    decryption()
     print("Plain text: ", end="")
     for letter in plain_text:
         print(letter, end="")
