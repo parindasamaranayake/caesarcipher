@@ -35,22 +35,30 @@ upper_letters = string.ascii_uppercase
 for letter in upper_letters:
     letters.append(letter)
 
-method = input("Enter your method (encrypt or decrypt): ")
+# Selecting the function
+method = input("Choose a method (encrypt / decrypt): ")
 
 if method == "encrypt":
-    user_input = input("Enter your word : ").upper()
-    for letter in user_input:
-        input_letters.append(letter)
-    encryption()
-    print("Cipher text: ", end="")
-    for letter in cipher_text:
-        print(letter, end="")
-
+    try:
+        user_input = input("Enter a message to encrypt: ").upper()
+        for letter in user_input:
+            input_letters.append(letter)
+        encryption()
+        print("Encrypted message: ", end="")
+        for letter in cipher_text:
+            print(letter, end="")
+    except ValueError:
+        print("Please enter letters only.")
 elif method == "decrypt":
-    user_input = input("Enter your word : ").upper()
-    for letter in user_input:
-        input_letters.append(letter)
-    decryption()
-    print("Plain text: ", end="")
-    for letter in plain_text:
-        print(letter, end="")
+    try:
+        user_input = input("Enter a message to decrypt: ").upper()
+        for letter in user_input:
+            input_letters.append(letter)
+        decryption()
+        print("Decrypted message: ", end="")
+        for letter in plain_text:
+            print(letter, end="")
+    except ValueError:
+        print("Please enter letters only.")
+else:
+    print("Please choose a correct method.")
